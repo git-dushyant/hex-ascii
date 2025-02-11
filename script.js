@@ -1,10 +1,11 @@
+// Function to convert Hex to ASCII
 function convertHexToAscii() {
     let hex = document.getElementById("hexInput").value.trim();
 
-    // Remove spaces and non-hex characters
-    hex = hex.replace(/\s+/g, ""); // Removes all spaces
+    // Remove spaces before processing
+    hex = hex.replace(/\s+/g, "");
 
-    // Ensure even-length (Hex should be in pairs)
+    // Ensure even-length hex input
     if (hex.length % 2 !== 0) {
         document.getElementById("asciiOutput").value = "Error: Invalid Hex (Odd Length)";
         return;
@@ -21,34 +22,38 @@ function convertHexToAscii() {
     }
 }
 
-
-
-function clearFields() {
-    document.getElementById("hexInput").value = "";
-    document.getElementById("asciiOutput").value = "";
-}
-
+// Function to convert ASCII to Hex
 function convertAsciiToHex() {
     let ascii = document.getElementById("asciiInput").value;
     let hex = "";
 
     for (let i = 0; i < ascii.length; i++) {
-        hex += ascii.charCodeAt(i).toString(16).toUpperCase() + " ";
+        hex += ascii.charCodeAt(i).toString(16).padStart(2, "0") + " "; // Adds space between hex pairs
     }
 
-    document.getElementById("hexOutput").value = hex.trim();
+    hex = hex.trim(); // Remove last space
+    document.getElementById("hexOutput").value = hex;
 }
 
+// Function to clear Hex input and output
+function clearFields() {
+    document.getElementById("hexInput").value = "";
+    document.getElementById("asciiOutput").value = "";
+}
+
+// Function to clear ASCII input and output
 function clearAsciiFields() {
     document.getElementById("asciiInput").value = "";
     document.getElementById("hexOutput").value = "";
 }
 
-function copyToClipboard(id) {
-    let textArea = document.getElementById(id);
+// Function to copy text from textarea
+function copyToClipboard(elementId) {
+    let textArea = document.getElementById(elementId);
     textArea.select();
-    document.execCommand("copy");
-    alert("Copied to clipboard!");
+    textArea.setSelectionRange(0, 99999); // For mobile support
+
+    navigator.clipboard.writeText(textArea.value.trim()) // Trim before copying
+        .then(() => alert("Copied to clipboard!"))
+        .catch(err => console.error("Copy failed", err));
 }
-
-
