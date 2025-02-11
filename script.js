@@ -22,13 +22,13 @@ function convertHexToAscii() {
     }
 }
 
-// Function to convert ASCII to Hex (Now outputs UPPERCASE)
+// Function to convert ASCII to Hex (Always UPPERCASE)
 function convertAsciiToHex() {
     let ascii = document.getElementById("asciiInput").value;
     let hex = "";
 
     for (let i = 0; i < ascii.length; i++) {
-        hex += ascii.charCodeAt(i).toString(16).padStart(2, "0").toUpperCase() + " "; // Converts to uppercase
+        hex += ascii.charCodeAt(i).toString(16).padStart(2, "0").toUpperCase() + " "; // Convert to uppercase
     }
 
     hex = hex.trim(); // Remove last space
