@@ -21,3 +21,20 @@ function clearFields() {
     document.getElementById("hexInput").value = "";
     document.getElementById("asciiOutput").value = "";
 }
+
+function convertAsciiToHex() {
+    let ascii = document.getElementById("asciiInput").value;
+    let hex = "";
+
+    for (let i = 0; i < ascii.length; i++) {
+        hex += ascii.charCodeAt(i).toString(16).toUpperCase() + " ";
+    }
+
+    document.getElementById("hexOutput").value = hex.trim();
+}
+
+function clearAsciiFields() {
+    document.getElementById("asciiInput").value = "";
+    document.getElementById("hexOutput").value = "";
+}
+
