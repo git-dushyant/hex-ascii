@@ -1,69 +1,93 @@
-// Function to convert Hex to ASCII
-function convertHexToAscii() {
-    let hex = document.getElementById("hexInput").value.trim().toUpperCase(); // Ensure input is uppercase
+// Function to update labels based on dropdown selection
+function updateLabels() {
+    let inputType = document.getElementById("inputType").value;
+    let outputType = document.getElementById("outputType").value;
 
-    // Remove spaces before processing
-    hex = hex.replace(/\s+/g, "");
+    document.getElementById("converterTitle").innerText = `${inputType.toUpperCase()} to ${outputType.toUpperCase()} Converter`;
+    document.getElementById("inputLabel").innerText = `Enter ${inputType.toUpperCase()}:`;
+    document.getElementById("outputLabel").innerText = `${outputType.toUpperCase()} Output:`;
+}
 
-    // Ensure even-length hex input
-    if (hex.length % 2 !== 0) {
-        document.getElementById("asciiOutput").value = "Error: Invalid Hex (Odd Length)";
-        return;
-    }
+// Function to handle conversion
+function convertData() {
+    let inputType = document.getElementById("inputType").value;
+    let outputType = document.getElementById("outputType").value;
+    let inputValue = document.getElementById("inputValue").value.trim();
+    let outputValue = "";
 
-    let ascii = "";
     try {
-        for (let i = 0; i < hex.length; i += 2) {
-            ascii += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+        if (inputType === "ascii") {
+            if (outputType === "hex") outputValue = asciiToHex(inputValue);
+            else if (outputType === "binary") outputValue = asciiToBinary(inputValue);
+            else if (outputType === "decimal") outputValue = asciiToDecimal(inputValue);
+            else if (outputType === "octal") outputValue = asciiToOctal(inputValue);
+        } else if (inputType === "hex") {
+            if (outputType === "ascii") outputValue = hexToAscii(inputValue);
+            else if (outputType === "binary") outputValue = hexToBinary(inputValue);
+            else if (outputType === "decimal") outputValue = hexToDecimal(inputValue);
+            else if (outputType === "octal") outputValue = hexToOctal(inputValue);
         }
-        document.getElementById("asciiOutput").value = ascii;
-    } catch (e) {
-        document.getElementById("asciiOutput").value = "Error: Conversion Failed";
-    }
-}
-
-// Function to convert ASCII to Hex (Ensures UPPERCASE output)
-function convertAsciiToHex() {
-    let ascii = document.getElementById("asciiInput").value;
-    let hexArray = [];
-
-    for (let i = 0; i < ascii.length; i++) {
-        let hexChar = ascii.charCodeAt(i).toString(16).padStart(2, "0").toUpperCase(); // Force UPPERCASE
-        hexArray.push(hexChar);
+        // Other conversions can be added similarly
+    } catch (error) {
+        outputValue = "Error: Invalid Input!";
     }
 
-    let hex = hexArray.join(" "); // Join with space
-    document.getElementById("hexOutput").value = hex;
+    document.getElementById("outputValue").value = outputValue;
 }
 
-// Function to clear Hex input and output
+// Function to clear input and output fields
 function clearFields() {
-    document.getElementById("hexInput").value = "";
-    document.getElementById("asciiOutput").value = "";
+    document.getElementById("inputValue").value = "";
+    document.getElementById("outputValue").value = "";
 }
 
-// Function to clear ASCII input and output
-function clearAsciiFields() {
-    document.getElementById("asciiInput").value = "";
-    document.getElementById("hexOutput").value = "";
-}
-
-// Function to copy text from textarea (Fixed copy-paste issue)
+// Function to copy text from textarea
 function copyToClipboard(elementId) {
     let textArea = document.getElementById(elementId);
-    
-    // Set focus and select the content
-    textArea.focus();
     textArea.select();
-    
-    try {
-        // Attempt to copy text
-        document.execCommand("copy");
-        alert("Copied to clipboard!");
-    } catch (err) {
-        console.error("Copy failed", err);
-    }
-    
-    // Deselect text
-    textArea.setSelectionRange(0, 0);
+    document.execCommand("copy");
+    alert("Copied to clipboard!");
 }
+
+// ASCII to Hex
+function asciiToHex(str) {
+    return str.split("").map(char => char.charCodeAt(0).toString(16).padStart(2, "0").toUpperCase()).join(" ");
+}
+
+// Hex to ASCII
+function hexToAscii(hex) {
+    return hex.split(" ").map(byte => String.fromCharCode(parseInt(byte, 16))).join("");
+}
+
+// ASCII to Binary
+function asciiToBinary(str) {
+    return str.split("").map(char => char.charCodeAt(0).toString(2).padStart(8, "0")).join(" ");
+}
+
+// Hex to Binary
+function hexToBinary(hex) {
+    return hex.split(" ").map(byte => parseInt(byte, 16).toString(2).padStart(8, "0")).join(" ");
+}
+
+// ASCII to Decimal
+function asciiToDecimal(str) {
+    return str.split("").map(char => char.charCodeAt(0).toString(10)).join(" ");
+}
+
+// Hex to Decimal
+function hexToDecimal(hex) {
+    return hex.split(" ").map(byte => parseInt(byte, 16).toString(10)).join(" ");
+}
+
+// ASCII to Octal
+function asciiToOctal(str) {
+    return str.split("").map(char => char.charCodeAt(0).toString(8)).join(" ");
+}
+
+// Hex to Octal
+function hexToOctal(hex) {
+    return hex.split(" ").map(byte => parseInt(byte, 16).toString(8)).join(" ");
+}
+
+// Update labels on page load
+updateLabels();
