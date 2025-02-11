@@ -88,13 +88,13 @@ button:nth-child(2):hover {
 }
 
 /* Copy Button */
-button:nth-child(3) {
-    background-color: #2980b9; /* Slightly lighter blue */
-    color: white;
+button.copy {
+    background-color: #2980b9 !important; /* Slightly lighter blue */
+    color: white !important;
 }
 
-button:nth-child(3):hover {
-    background-color: #1f618d; /* Darker blue for contrast */
+button.copy:hover {
+    background-color: #1f618d !important; /* Darker blue */
 }
 
 /* Responsive Design */
