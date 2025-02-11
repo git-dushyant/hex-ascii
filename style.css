@@ -9,7 +9,7 @@ body {
 
 /* Main Container */
 .container {
-    max-width: 650px;
+    max-width: 800px; /* Increased width to allow side-by-side */
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -24,43 +24,48 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* Input and Output Side-by-Side */
+/* ✅ FIX: Flexbox Layout for Input & Output */
 .converter-box {
-    display: flex;
+    display: flex !important;   /* ✅ Ensures Flex is applied */
+    flex-direction: row !important;  /* ✅ Ensures side-by-side */
     justify-content: space-between;
     align-items: center;
-    width: 100%; //DK_11_02_2025
-    margin-bottom: 10px;
+    width: 100%;
+    gap: 20px; /* Adds spacing */
+    margin-bottom: 20px;
+    flex-wrap: nowrap;  /* ✅ Ensures it never wraps to new line */
 }
 
-/* Rectangular Input and Output Boxes */
+/* ✅ Input & Output Box */
 .input-box, .output-box {
-    width: 45%;
+    width: 48% !important;  /* ✅ Ensures equal width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* ✅ Fix Input & Output Width */
 textarea, input {
-    width: 50%;
-    height: 100px; /* Larger height for rectangular shape */
+    width: 100% !important;
+    height: 120px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-    text-align: left; //DK_11_02_2025
-    resize: none; /* Prevent resizing */
+    resize: none;
 }
 
-/* Buttons in One Row */
+/* ✅ Button Row */
 .button-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 10px;
-    width: 100%;
+    margin-top: 15px;
 }
 
 /* Button Styling */
 button {
-    flex: 1;
-    padding: 10px;
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
     font-size: 14px;
@@ -69,47 +74,23 @@ button {
 }
 
 /* Button Colors */
-button.convert {
-    background-color: #27ae60;
-    color: white;
-}
+button.convert { background-color: #27ae60; color: white; }
+button.convert:hover { background-color: #1e8449; }
 
-button.convert:hover {
-    background-color: #1e8449;
-}
+button.clear { background-color: #e74c3c; color: white; }
+button.clear:hover { background-color: #c0392b; }
 
-button.clear {
-    background-color: #e74c3c;
-    color: white;
-}
+button.copy { background-color: #2980b9; color: white; }
+button.copy:hover { background-color: #1f618d; }
 
-button.clear:hover {
-    background-color: #c0392b;
-}
-
-button.copy {
-    background-color: #2980b9;
-    color: white;
-}
-
-button.copy:hover {
-    background-color: #1f618d;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-        padding: 15px;
-    }
-
+/* ✅ FIXED Responsive Design */
+@media (max-width: 768px) {
     .converter-box {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: column !important; /* ✅ Stack only on small screens */
     }
 
     .input-box, .output-box {
-        width: 100%; /* Stack input & output on small screens */
+        width: 100% !important; /* ✅ Full width on small screens */
     }
 
     button {
