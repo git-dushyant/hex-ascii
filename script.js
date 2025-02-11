@@ -1,21 +1,26 @@
 function convertHexToAscii() {
     let hex = document.getElementById("hexInput").value.trim();
-    let ascii = "";
 
+    // Remove spaces, newlines, and non-hex characters
+    hex = hex.replace(/[^0-9A-Fa-f]/g, "");
+
+    // Ensure even-length (Hex should be in pairs)
     if (hex.length % 2 !== 0) {
-        alert("Invalid Hex! Length must be even.");
+        document.getElementById("asciiOutput").value = "Error: Invalid Hex (Odd Length)";
         return;
     }
 
+    let ascii = "";
     try {
         for (let i = 0; i < hex.length; i += 2) {
             ascii += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
         }
         document.getElementById("asciiOutput").value = ascii;
     } catch (e) {
-        alert("Invalid hex input!");
+        document.getElementById("asciiOutput").value = "Error: Conversion Failed";
     }
 }
+
 
 function clearFields() {
     document.getElementById("hexInput").value = "";
