@@ -1,6 +1,6 @@
 // Function to convert Hex to ASCII
 function convertHexToAscii() {
-    let hex = document.getElementById("hexInput").value.trim();
+    let hex = document.getElementById("hexInput").value.trim().toUpperCase(); // Ensure input is uppercase
 
     // Remove spaces before processing
     hex = hex.replace(/\s+/g, "");
@@ -22,16 +22,17 @@ function convertHexToAscii() {
     }
 }
 
-// Function to convert ASCII to Hex (ALWAYS UPPERCASE)
+// Function to convert ASCII to Hex (Ensures UPPERCASE output)
 function convertAsciiToHex() {
     let ascii = document.getElementById("asciiInput").value;
-    let hex = "";
+    let hexArray = [];
 
     for (let i = 0; i < ascii.length; i++) {
-        hex += ascii.charCodeAt(i).toString(16).padStart(2, "0").toUpperCase() + " "; // Convert to uppercase
+        let hexChar = ascii.charCodeAt(i).toString(16).padStart(2, "0").toUpperCase(); // Force UPPERCASE
+        hexArray.push(hexChar);
     }
 
-    hex = hex.trim(); // Remove trailing space
+    let hex = hexArray.join(" "); // Join with space
     document.getElementById("hexOutput").value = hex;
 }
 
@@ -47,13 +48,22 @@ function clearAsciiFields() {
     document.getElementById("hexOutput").value = "";
 }
 
-// Function to copy text from textarea
+// Function to copy text from textarea (Fixed copy-paste issue)
 function copyToClipboard(elementId) {
     let textArea = document.getElementById(elementId);
+    
+    // Set focus and select the content
+    textArea.focus();
     textArea.select();
-    textArea.setSelectionRange(0, 99999); // For mobile support
-
-    navigator.clipboard.writeText(textArea.value.trim()) // Trim before copying
-        .then(() => alert("Copied to clipboard!"))
-        .catch(err => console.error("Copy failed", err));
+    
+    try {
+        // Attempt to copy text
+        document.execCommand("copy");
+        alert("Copied to clipboard!");
+    } catch (err) {
+        console.error("Copy failed", err);
+    }
+    
+    // Deselect text
+    textArea.setSelectionRange(0, 0);
 }
