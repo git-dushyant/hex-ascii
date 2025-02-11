@@ -34,7 +34,7 @@ h2 {
 
 /* Smaller Dropdowns */
 select {
-    width: 40%; /* Reduced width */
+    width: 10%; /* Reduced width */
     padding: 6px; /* Smaller padding */
     border: 1px solid #ccc;
     border-radius: 5px;
