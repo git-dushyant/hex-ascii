@@ -38,3 +38,11 @@ function clearAsciiFields() {
     document.getElementById("hexOutput").value = "";
 }
 
+function copyToClipboard(id) {
+    let textArea = document.getElementById(id);
+    textArea.select();
+    document.execCommand("copy");
+    alert("Copied to clipboard!");
+}
+
+
