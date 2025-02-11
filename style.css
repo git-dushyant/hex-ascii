@@ -69,32 +69,32 @@ button {
 
 /* Convert Button */
 button:nth-child(1) {
-    background-color: #28a745;
+    background-color: #27ae60; /* Slightly lighter green */
     color: white;
 }
 
 button:nth-child(1):hover {
-    background-color: #218838;
+    background-color: #1e8449; /* Darker green for contrast */
 }
 
 /* Clear Button */
 button:nth-child(2) {
-    background-color: #dc3545;
+    background-color: #e74c3c; /* Slightly lighter red */
     color: white;
 }
 
 button:nth-child(2):hover {
-    background-color: #c82333;
+    background-color: #c0392b; /* Darker red for contrast */
 }
 
 /* Copy Button */
 button:nth-child(3) {
-    background-color: #007bff;
+    background-color: #2980b9; /* Slightly lighter blue */
     color: white;
 }
 
 button:nth-child(3):hover {
-    background-color: #0056b3;
+    background-color: #1f618d; /* Darker blue for contrast */
 }
 
 /* Responsive Design */
