@@ -30,17 +30,19 @@ h2 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    width: 100%;
 }
 
 /* Smaller Dropdowns */
 select {
-    width: 10%; /* Reduced width */
-    padding: 6px; /* Smaller padding */
+    width: 30%; /* Reduced width */
+    padding: 5px; /* Smaller padding */
     border: 1px solid #ccc;
     border-radius: 5px;
     background: white;
-    font-size: 14px;
+    font-size: 13px; /* Smaller font */
     cursor: pointer;
+    text-align: center;
 }
 
 /* Input Fields */
@@ -56,10 +58,10 @@ input, textarea {
 /* Buttons */
 button {
     width: 48%;
-    padding: 10px;
+    padding: 8px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     margin: 5px 1%;
     transition: 0.3s;
@@ -108,7 +110,7 @@ button:nth-child(3):hover {
     }
 
     select {
-        width: 80%; /* Slightly bigger dropdowns on small screens */
+        width: 60%; /* Slightly bigger on smaller screens */
     }
 
     button {
