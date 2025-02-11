@@ -1,8 +1,8 @@
 function convertHexToAscii() {
     let hex = document.getElementById("hexInput").value.trim();
 
-    // Remove spaces, newlines, and non-hex characters
-    hex = hex.replace(/[^0-9A-Fa-f]/g, "");
+    // Remove spaces and non-hex characters
+    hex = hex.replace(/\s+/g, ""); // Removes all spaces
 
     // Ensure even-length (Hex should be in pairs)
     if (hex.length % 2 !== 0) {
@@ -20,6 +20,7 @@ function convertHexToAscii() {
         document.getElementById("asciiOutput").value = "Error: Conversion Failed";
     }
 }
+
 
 
 function clearFields() {
