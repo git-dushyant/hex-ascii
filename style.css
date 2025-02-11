@@ -29,18 +29,18 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     width: 100%;
 }
 
-/* Smaller Dropdowns */
+/* **Much Smaller Dropdowns** */
 select {
-    width: 30%; /* Reduced width */
-    padding: 5px; /* Smaller padding */
+    width: 80px;  /* Fixed small width */
+    padding: 4px; /* Small padding */
     border: 1px solid #ccc;
     border-radius: 5px;
     background: white;
-    font-size: 13px; /* Smaller font */
+    font-size: 12px; /* Smaller font */
     cursor: pointer;
     text-align: center;
 }
@@ -110,7 +110,7 @@ button:nth-child(3):hover {
     }
 
     select {
-        width: 60%; /* Slightly bigger on smaller screens */
+        width: 100px; /* Slightly larger on mobile */
     }
 
     button {
