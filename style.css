@@ -9,7 +9,7 @@ body {
 
 /* Main Container */
 .container {
-    max-width: 500px;
+    max-width: 650px;
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -20,81 +20,80 @@ body {
 /* Headings */
 h2 {
     color: #333;
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
-/* Dropdowns Row */
-.dropdown-container {
+/* Input and Output Side-by-Side */
+.converter-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     margin-bottom: 10px;
-    width: 100%;
 }
 
-/* **Much Smaller Dropdowns** */
-select {
-    width: 80px;  /* Fixed small width */
-    padding: 4px; /* Small padding */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: white;
-    font-size: 12px; /* Smaller font */
-    cursor: pointer;
-    text-align: center;
+/* Rectangular Input and Output Boxes */
+.input-box, .output-box {
+    width: 45%;
 }
 
-/* Input Fields */
-input, textarea {
+textarea, input {
     width: 100%;
+    height: 100px; /* Larger height for rectangular shape */
     padding: 10px;
-    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
+    text-align: center;
+    resize: none; /* Prevent resizing */
 }
 
-/* Buttons */
+/* Buttons in One Row */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Button Styling */
 button {
-    width: 48%;
-    padding: 8px;
+    flex: 1;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
-    margin: 5px 1%;
     transition: 0.3s;
 }
 
-/* Convert Button */
-button:nth-child(1) {
-    background-color: #27ae60; /* Slightly lighter green */
+/* Button Colors */
+button.convert {
+    background-color: #27ae60;
     color: white;
 }
 
-button:nth-child(1):hover {
-    background-color: #1e8449; /* Darker green for contrast */
+button.convert:hover {
+    background-color: #1e8449;
 }
 
-/* Clear Button */
-button:nth-child(2) {
-    background-color: #e74c3c; /* Slightly lighter red */
+button.clear {
+    background-color: #e74c3c;
     color: white;
 }
 
-button:nth-child(2):hover {
-    background-color: #c0392b; /* Darker red for contrast */
+button.clear:hover {
+    background-color: #c0392b;
 }
 
-/* Copy Button */
 button.copy {
-    background-color: #2980b9 !important; /* Slightly lighter blue */
-    color: white !important;
+    background-color: #2980b9;
+    color: white;
 }
 
 button.copy:hover {
-    background-color: #1f618d !important; /* Darker blue */
+    background-color: #1f618d;
 }
 
 /* Responsive Design */
@@ -104,13 +103,13 @@ button.copy:hover {
         padding: 15px;
     }
 
-    .dropdown-container {
+    .converter-box {
         flex-direction: column;
         gap: 10px;
     }
 
-    select {
-        width: 100px; /* Slightly larger on mobile */
+    .input-box, .output-box {
+        width: 100%; /* Stack input & output on small screens */
     }
 
     button {
