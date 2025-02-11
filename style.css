@@ -29,7 +29,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%; //DK_11_02_2025
+    width: 100%; //DK_11_02_2025
     margin-bottom: 10px;
 }
 
@@ -39,13 +39,13 @@ h2 {
 }
 
 textarea, input {
-    width: 100%;
+    width: 50%;
     height: 100px; /* Larger height for rectangular shape */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-    text-align: center;
+    text-align: left; //DK_11_02_2025
     resize: none; /* Prevent resizing */
 }
 
