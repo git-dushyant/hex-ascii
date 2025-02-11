@@ -22,16 +22,16 @@ function convertHexToAscii() {
     }
 }
 
-// Function to convert ASCII to Hex (Always UPPERCASE)
+// Function to convert ASCII to Hex (Ensures UPPERCASE Output)
 function convertAsciiToHex() {
     let ascii = document.getElementById("asciiInput").value;
-    let hex = "";
+    let hexArray = [];
 
     for (let i = 0; i < ascii.length; i++) {
-        hex += ascii.charCodeAt(i).toString(16).padStart(2, "0").toUpperCase() + " "; // Convert to uppercase
+        hexArray.push(ascii.charCodeAt(i).toString(16).padStart(2, "0").toUpperCase()); // Convert to uppercase
     }
 
-    hex = hex.trim(); // Remove last space
+    let hex = hexArray.join(" "); // Join with space
     document.getElementById("hexOutput").value = hex;
 }
 
