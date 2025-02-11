@@ -29,7 +29,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 50%; //DK_11_02_2025
     margin-bottom: 10px;
 }
 
