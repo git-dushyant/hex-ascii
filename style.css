@@ -32,10 +32,10 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Dropdowns */
+/* Smaller Dropdowns */
 select {
-    width: 48%; /* Makes dropdown smaller */
-    padding: 8px;
+    width: 40%; /* Reduced width */
+    padding: 6px; /* Smaller padding */
     border: 1px solid #ccc;
     border-radius: 5px;
     background: white;
@@ -108,7 +108,7 @@ button:nth-child(3):hover {
     }
 
     select {
-        width: 100%;
+        width: 80%; /* Slightly bigger dropdowns on small screens */
     }
 
     button {
