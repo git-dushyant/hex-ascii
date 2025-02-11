@@ -3,34 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hex to ASCII Converter</title>
+    <title>Data Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h2>Hex to ASCII Converter</h2>
+    <h2 id="converterTitle">Data Converter</h2>
 
-    <label>Enter Hex:</label>
-    <input type="text" id="hexInput" placeholder="Enter hex (e.g., 48656C6C6F)">
-    
-    <button onclick="convertHexToAscii()">Convert</button>
+    <label for="inputType">Convert From:</label>
+    <select id="inputType" onchange="updateLabels()">
+        <option value="ascii">ASCII</option>
+        <option value="hex">Hex</option>
+        <option value="binary">Binary</option>
+        <option value="decimal">Decimal</option>
+        <option value="octal">Octal</option>
+    </select>
+
+    <label for="outputType">Convert To:</label>
+    <select id="outputType" onchange="updateLabels()">
+        <option value="hex">Hex</option>
+        <option value="ascii">ASCII</option>
+        <option value="binary">Binary</option>
+        <option value="decimal">Decimal</option>
+        <option value="octal">Octal</option>
+    </select>
+
+    <h3 id="inputLabel">Enter ASCII:</h3>
+    <input type="text" id="inputValue" placeholder="Enter text">
+
+    <button onclick="convertData()">Convert</button>
     <button onclick="clearFields()">Clear</button>
 
-    <h3>ASCII Output:</h3>
-    <textarea id="asciiOutput" readonly></textarea>
-    <button onclick="copyToClipboard('asciiOutput')">Copy ASCII</button>
+    <h3 id="outputLabel">Output:</h3>
+    <textarea id="outputValue" readonly></textarea>
 
-    <h2>ASCII to Hex Converter</h2>
-
-    <label>Enter ASCII:</label>
-    <input type="text" id="asciiInput" placeholder="Enter text (e.g., Hello)">
-    
-    <button onclick="convertAsciiToHex()">Convert</button>
-    <button onclick="clearAsciiFields()">Clear</button>
-    
-    <h3>Hex Output:</h3>
-    <textarea id="hexOutput" readonly></textarea>
-    <button onclick="copyToClipboard('hexOutput')">Copy Hex</button>
+    <button onclick="copyToClipboard('outputValue')">Copy</button>
 
     <script src="script.js"></script>
 
