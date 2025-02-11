@@ -1,41 +1,108 @@
-body { 
-    font-family: Arial, sans-serif; 
-    text-align: center; 
-    margin: 20px;
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
 }
 
-input, textarea {
-    width: 80%;
+/* Main Container */
+.container {
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+/* Headings */
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+/* Dropdowns */
+select {
+    width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    font-size: 16px;
 }
 
+/* Input Fields */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Buttons */
 button {
-    padding: 10px 15px;
-    margin: 5px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
+    width: 48%;
+    padding: 10px;
     border: none;
     border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px 1%;
+    transition: 0.3s;
 }
 
-button:hover {
+/* Convert Button */
+button:nth-child(1) {
+    background-color: #28a745;
+    color: white;
+}
+
+button:nth-child(1):hover {
+    background-color: #218838;
+}
+
+/* Clear Button */
+button:nth-child(2) {
+    background-color: #dc3545;
+    color: white;
+}
+
+button:nth-child(2):hover {
+    background-color: #c82333;
+}
+
+/* Copy Button */
+button:nth-child(3) {
+    background-color: #007bff;
+    color: white;
+}
+
+button:nth-child(3):hover {
     background-color: #0056b3;
 }
 
+/* Responsive Design */
 @media (max-width: 600px) {
-    input, textarea {
+    .container {
         width: 90%;
-        font-size: 16px;
+        padding: 15px;
     }
 
     button {
-        width: 90%;
-        font-size: 16px;
-    }
-
-    h2, h3 {
-        font-size: 18px;
+        width: 100%;
+        margin-bottom: 10px;
     }
 }
